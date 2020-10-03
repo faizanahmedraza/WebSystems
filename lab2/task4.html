@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4</title>
+    <style>
+        @import url('../css/lab2.css');
+        body {
+            background-image: url('../assets/images/cover.png');
+            background-size: contain;
+            font-size: 16px;
+            padding: 10px;
+        }
+        audio {
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        audio:hover,
+        audio:focus{
+            border:2px solid rgb(188, 228, 79);
+            border-radius: 25px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 align="center">Welcome TO MY WEB PAGE</h2>
+    <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+        <p style="margin-top: -15px; font-size: 18px; color: rgb(91,136,9); text-shadow: 1px 1px 1px black;">Listen This Audio and Don't Forget to Watch the Video</p>
+        <audio controls src="../assets/audio/bensound-creativeminds.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
+        <video src="../assets/video/nature.mp4" width="300" style="margin-top: 20px;" controls>
+            Sorry, your browser doesn't support embedded videos.
+        </video>
+    </div>
+    <p style="position: fixed; bottom: 0; right:0; margin-right: 10px; font-size: 16px;">Go Back to: <a href="./task1.html" target="_blank">Task1</a></p>
+</body>
+
+</html>
