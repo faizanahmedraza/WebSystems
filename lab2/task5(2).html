@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task5(2)</title>
+    <style>
+        @import url('../css/lab2.css');
+        body {
+            font-size: 16px;
+        }
+        table {
+            width: 50vw;
+            margin-top:20px;
+        }
+        table,th,tr,td {
+            border: 1px solid rgb(34, 34, 34);
+            background-color: black;
+            text-align: center;
+            color: whitesmoke;
+        }
+        .one {
+            background-color: rgb(224, 59, 59);
+        }
+        .two {
+            background-color: rgb(63, 173, 63);
+        }
+        .three {
+            background-color: yellowgreen;
+        }
+        .month1 {
+            background-color: tomato;
+        }
+        .month2 {
+            background-color: rgb(230, 104, 31);
+        }
+        .year {
+            background-color: rgb(97, 97, 97);
+        }
+    </style>
+</head>
+<body>
+    <h2 align="center">All about HTML tables (Part-2)</h2> 
+    <div class="container">
+        <table cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                    <th colspan="7">Motivational Seminar</th>
+                </tr>
+                <tr>
+                    <th rowspan="2">Years</th>
+                    <th rowspan="2">Months</th>
+                    <th rowspan="2">Days</th>
+                    <th colspan="2">Schedule</th>
+                    <th rowspan="2">Topic</th>
+                </tr>
+                <tr>
+                    <th>Begin</th>
+                    <th>End</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="year" rowspan="6">2019</td>
+                    <td class="month1" rowspan="3">Month1</td>
+                    <td class="one">Monday</td>
+                    <td class="one">8:00 a.m.</td>
+                    <td class="one">5:00 p.m.</td>
+                    <td class="one">Introduction to HTML</td>
+                </tr>
+                <tr>
+                    <td class="two">Tuesday</td>
+                    <td class="two">8:00 a.m.</td>
+                    <td class="two">5:00 p.m.</td>
+                    <td class="two">Introduction to XML</td>
+                </tr>
+                <tr>
+                    <td class="three">Wednesday</td>
+                    <td class="three">8:00 a.m.</td>
+                    <td class="three">5:00 p.m.</td>
+                    <td class="three">Introduction to XML</td>
+                </tr>
+                <tr>
+                    <td class="month2" rowspan="3">Month2</td>
+                    <td class="one">Monday</td>
+                    <td class="one">8:00 a.m.</td>
+                    <td class="one">5:00 p.m.</td>
+                    <td class="one">Introduction to HTML</td>
+                </tr>
+                <tr>
+                    <td class="two">Tuesday</td>
+                    <td class="two">8:00 a.m.</td>
+                    <td class="two">5:00 p.m.</td>
+                    <td class="two">Introduction to XML</td>
+                </tr>
+                <tr>
+                    <td class="three">Wednesday</td>
+                    <td class="three">8:00 a.m.</td>
+                    <td class="three">5:00 p.m.</td>
+                    <td class="three">Introduction to XML</td>
+                </tr>
+                <tr>
+                    <td class="year" rowspan="6">2020</td>
+                    <td class="month1" rowspan="3">Month1</td>
+                    <td class="one">Monday</td>
+                    <td class="one">8:00 a.m.</td>
+                    <td class="one">5:00 p.m.</td>
+                    <td class="one">Introduction to HTML</td>
+                </tr>
+                <tr>
+                    <td class="two">Tuesday</td>
+                    <td class="two">8:00 a.m.</td>
+                    <td class="two">5:00 p.m.</td>
+                    <td class="two">Introduction to XML</td>
+                </tr>
+                <tr>
+                    <td class="three">Wednesday</td>
+                    <td class="three">8:00 a.m.</td>
+                    <td class="three">5:00 p.m.</td>
+                    <td class="three">Introduction to XML</td>
+                </tr>
+                <tr>
+                    <td class="month2" rowspan="3">Month2</td>
+                    <td class="one">Monday</td>
+                    <td class="one">8:00 a.m.</td>
+                    <td class="one">5:00 p.m.</td>
+                    <td class="one">Introduction to HTML</td>
+                </tr>
+                <tr>
+                    <td class="two">Tuesday</td>
+                    <td class="two">8:00 a.m.</td>
+                    <td class="two">5:00 p.m.</td>
+                    <td class="two">Introduction to XML</td>
+                </tr>
+                <tr>
+                    <td class="three">Wednesday</td>
+                    <td class="three">8:00 a.m.</td>
+                    <td class="three">5:00 p.m.</td>
+                    <td class="three">Introduction to XML</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">End of the Table</td>
+                    </tr>
+            </tfoot>
+        </table>
+        <p style="position: fixed; bottom: 0; right:0; margin-right: 10px; font-size: 16px;">Go Back to: <a href="./task1.html" target="_blank">Task1</a></p>
+    </div>
+</body>
+</html>
