@@ -1,0 +1,39 @@
+*{
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+}
+
+
+
+.btn {
+    margin-top: 20px;
+}
