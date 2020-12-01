@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <title></title>
+    <abstract></abstract>
+    <chapter id="intro">
+        <title></title>
+        <section>
+            <title></title>
+            <p id="p13"></p>
+            <p>
+                <a></a>
+            </p>
+            <p/>
+            <p/>
+        </section>
+        <section/>
+    </chapter>
+    <chapter id="details"></chapter>
+    <chapter id="summary"></chapter>
+</doc>
