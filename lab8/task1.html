@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1</title>
+    <style>
+        body {
+            margin-top: 50px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <table align="center">
+            <tr>
+                <td><label>Name:</label></td>
+                <td><input type="text" value="" placeholder="Enter Name" /></td>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type="text" value="" placeholder="Enter Password" /></td>
+            </tr>
+            <tr>
+                <td><label>Country:</label></td>
+                <td><select id="Country">
+                        <option hidden>Select Country</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Australia">Australia</option>
+                        <option>Iran</option>
+                        <option>England</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="city">
+                <td><label>Cities</label></td>
+                <td><select>
+                        <option hidden>Select City</option>
+                        <option>Karachi</option>
+                        <option>Lahore</option>
+                        <option>Islamabad</option>
+                        <option>Rawalpindi</option>
+                        <option>Multan</option>
+                        <option>Quetta</option>
+                        <option>Peshawar</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="city1">
+                <td><label>Cities</label></td>
+                <td><select>
+                        <option hidden>Select City</option>
+                        <option>Sydney</option>
+                        <option>Melbourne</option>
+                        <option>Brisbane</option>
+                        <option>Perth</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Message:</label></td>
+                <td><textarea name="textarea" value=""></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Upload Pic:</label></td>
+                <td><input type="file" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="SIGN UP" /></td>
+            </tr>
+        </table>
+        <form>
+            <script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $("#city").hide();
+                    $("#city1").hide();
+                    $(document).click(function () {
+                        $("#Country").change(function () {
+                            if ($(this).val() == "Pakistan") {
+                                $("#city").show();
+                            } else if ($(this).val() == "Australia") {
+                                $("#city1").show();
+                            }
+                            else {
+                                $("#city1").hide();
+                                $("#city").hide();
+                            }
+                        });
+                    });
+                });
+            </script>
+</body>
+
+</html>

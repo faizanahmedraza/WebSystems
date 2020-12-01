@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+</head>
+
+<body>
+    <form>
+        <table id="table1" align="center" cellspacing="8px">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Occupation</th>
+                <th>Approx.Location</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>203A</td>
+                <td>Johny Stardust <span class="a">(bio)</span></td>
+                <td>Front-man</td>
+                <td>Los Angeles</td>
+                <td>$39.95</td>
+            </tr>
+            <tr>
+                <td>141B</td>
+                <td>Beau Dandy <span class="a">(pic.bio)</span></td>
+                <td>Singer</td>
+                <td>New York</td>
+                <td>$39.95</td>
+            </tr>
+            <tr>
+                <td>2031</td>
+                <td>Mo'Fat <span class="a">(pic)</span></td>
+                <td>Producer</td>
+                <td>New York</td>
+                <td>$19.95</td>
+            </tr>
+            <tr>
+                <td>007F</td>
+                <td>Kellie Kelly <span class="a">(bio.press)</span></td>
+                <td>Singer</td>
+                <td>Omaha</td>
+                <td>$11.95</td>
+            </tr>
+            <tr>
+                <td>8A05</td>
+                <td>Darth Fader <span class="a">(pic)</span></td>
+                <td>DJ</td>
+                <td>London</td>
+                <td>$19.95</td>
+            </tr>
+            <tr>
+                <td>6636</td>
+                <td>Glendatronix <span class="a">(bio.press)</span></td>
+                <td>Keytarist</td>
+                <td>London</td>
+                <td>$39.95</td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#table1 tr:odd").css("background-color", "gainsboro");
+            $("th").css("color", "red");
+        });
+    </script>
+</body>
+
+</html>
