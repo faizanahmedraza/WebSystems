@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/lab6.css">
+    <title>Task1</title>
+</head>
+
+<body>
+    <form onsubmit="return Task1()">
+        <h1>Registration Form</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="tdlabel">User id:</td>
+                    <td>
+                        <input type="text" name="user_id" id="user_id" required>
+                        <span id="user_id_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Password:</td>
+                    <td>
+                        <input type="password" name="password" id="password" required>
+                        <span id="password_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Name:</td>
+                    <td>
+                        <input type="text" name="name" id="name" required>
+                        <span id="name_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Address:</td>
+                    <td>
+                        <input type="text" name="address" id="address">
+                        <span id="address_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Country</td>
+                    <td>
+                        <select name="country" id="country" required>
+                            <option hidden value="0">Select Country</option>
+                            <option value="1">Pakistan</option>
+                            <option value="2">India</option>
+                            <option value="3">Turkey</option>
+                            <option value="4">Afghanistan</option>
+                        </select>
+                        <span id="country_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">ZIP Code:</td>
+                    <td>
+                        <input type="number" name="zipcode" id="zipcode" required>
+                        <span id="zipcode_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Email:</td>
+                    <td>
+                        <input type="email" name="email" id="email" required>
+                        <span id="email_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Sex:</td>
+                    <td>
+                        <input type="radio" name="gender">
+                        <label for="">Male</label>
+                        <input type="radio" name="gender">
+                        <label for="">Female</label>
+                        <span id="sex_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Language:</td>
+                    <td>
+                        <input type="checkbox" name="lang">
+                        <label for="">English</label>
+                        <input type="checkbox" name="lang">
+                        <label for="">Non English</label>
+                        <span id="lang_error" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">About:</td>
+                    <td>
+                        <textarea name="about" id="about" cols="30" rows="5"></textarea>
+                        <span id="about_error" style="color: red;"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-left: 120px;">
+            <button type="submit" style="padding: 6px;">Submit</button>
+        </div>
+    </form>
+    <script src="../js/lab6.js"></script>
+</body>
+
+</html>

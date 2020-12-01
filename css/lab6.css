@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html,body{
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 75%;
+    margin: 10px auto;
+}
+table {
+    margin-top: 15px;
+    font-size: 18px;
+}
+.tdlabel {
+    padding-right: 15px;
+}

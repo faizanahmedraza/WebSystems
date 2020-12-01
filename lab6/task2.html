@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/lab6.css">
+    <title>Task2</title>
+</head>
+<body>
+    <form onsubmit="return(Task2())">
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="name" id="name" required>
+                <span id="name_error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <input type="email" name="email" id="email" required>
+                <span id="email_error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Website:</td>
+            <td>
+                <input type="url" name="url" id="url" required>
+                <span id="url_error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Message:</td>
+            <td>
+                <textarea name="message" id="message" cols="30" rows="5" required></textarea>
+                <span id="message_error"></span>
+            </td>
+        </tr>
+        <div style="margin-left: 120px;">
+            <button type="submit" style="padding: 6px;">Submit</button>
+        </div>
+    </form>
+    <script src="../js/lab6.js"></script>
+</body>
+</html>
