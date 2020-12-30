@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/15893db491.js"></script>
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <style>
+         div.form-signup.my-2 {
+            border: none;
+            border-bottom: 2px solid black!important;
+            font-size: 18px;
+        }
+
+        div.form-signup.my-2>input {
+            font-size: 18px;
+        }
+
+        div.form-signup.my-2>.form-control {
+            border: none;
+        }
+
+        div.form-signup.my-2>input.form-control.form-control-lg> ::placeholder {
+            background: transparent !important;
+        }
+        div.form-signup.my-2 > .form-select{
+            border: none;
+        }
+        .btn-circle {
+            width: 40px;
+            height: 40px;
+            padding: 6px 0px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.42857;
+        }
+
+        input.form-control {
+            background-color: transparent;
+            color: black !important;
+        }
+
+        ::placeholder {
+            color: black !important;
+        }
+        div.modal-content {
+            background-color: #FFC107;
+            border-radius: 25px !important;
+        }
+
+        .modal-header {
+            border-bottom: 2px solid darkorange !important;
+        }
+
+        .modal-body {
+            border-bottom: 1px solid darkorange !important;
+        }
+
+        .modal-footer {
+            border-top: 1px solid darkorange !important;
+            justify-content: space-around !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #FFC107;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Ticketing System</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Call at <span>+92 333 4343441</span></a>
+                        </li>
+                        <li class="nav-item" style="border-right: 1px solid darkorange;">
+                            <button type="button" class="btn"
+                                style="box-shadow: none;outline: none; height: 20px; margin-top: -10px; font-size: 16px;"
+                                data-bs-toggle="modal" data-bs-target="#signup">
+                                Sign up
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn"
+                                style="box-shadow: none;outline: none; height: 20px; margin-top: -10px; font-size: 16px;"
+                                data-bs-toggle="modal" data-bs-target="#login">
+                                Log in
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+         <!-- Navigation Bar -->
+        <div id="second-navbar" style="background-color: #ffc107e3; width: 100%;">
+            <a href="flight.html">Flights </a>
+            <a href="car.html">Cars </a>
+            <a href="train.html">Trains </a>
+            <a href="hotel.html">Hotels </a>
+            <a href="contact.html">Contact us </a>
+        </div>
+         <!-- Side Navigation Bar -->
+        <div id="mySidenav" class="sidenav me-0" style="position: relative;">
+            <a href="flight.html" id="flights" class="mySidenavColor">Flights <span class="icon"><i class="fa fa-plane"
+                        aria-hidden="true"></i></span></a>
+            <a href="car.html" id="cars" class="mySidenavColor">Cars <span class="icon" style="margin-left: 30px;"><i
+                        class="fa fa-car" aria-hidden="true"></i></span></a>
+            <a href="train.html" id="trains" class="mySidenavColor">Trains <span class="icon"
+                    style="margin-left: 20px;"><i class="fa fa-train" aria-hidden="true"></i></span></a>
+            <a href="hotel.html" id="hotels" class="mySidenavColor">Hotels <span class="icon"><i class="fa fa-bed"
+                        aria-hidden="true"></i></span></a>
+        </div>
+    </header>
+
+    <div class="container p-5 mt-3">
+        <div class="d-flex justify-content-center">
+            <h2 style="font-weight: 700;">Start Your Journey With Us</h2>
+        </div>
+        <form action="" onsubmit="return Payment();">
+            <div class="mb-3">
+                <div class="form-signup my-2">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
+                </div>
+                <div id="name_error" class="invalid-feedback" style="color: darkorange;"></div>
+            </div>
+            <div class="mb-3">
+                <div class="form-signup my-2">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email"
+                        aria-describedby="emailHelp" required>
+                </div>
+                <div id="email_error" class="invalid-feedback" style="color: darkorange;"></div>
+            </div>
+            <div class="mb-3">
+                <div class="form-signup my-2">
+                    <label for="name" class="form-label">Card Number</label>
+                    <input type="number" class="form-control" id="card_number" name="card_number" aria-describedby="emailHelp"
+                        required>
+                </div>
+                <div id="card_number_error" class="invalid-feedback" style="color: darkorange;"></div>
+            </div>
+            <div class="mb-3">
+                <div class="form-signup my-2">
+                    <label for="name" class="form-label">Expiry date</label>
+                    <input type="number" class="form-control" id="expiry_date" name="expiry_date" aria-describedby="emailHelp"
+                        required>
+                </div>
+                <div id="expiry_error" class="invalid-feedback" style="color: darkorange;"></div>
+            </div>
+            <div class="mb-3">
+                <div class="form-signup my-2">
+                    <label for="name" class="form-label">Card Verification Code</label>
+                    <input type="number" class="form-control" id="verify" name="verify" aria-describedby="emailHelp"
+                        required>
+                </div>
+                <div id="verify_error" class="invalid-feedback" style="color: darkorange;"></div>
+            </div>
+            <div class="mb-3">
+                <div class="form-signup my-2">
+                    <label for="name" class="form-label">Region</label>
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option selected>Choose</option>
+                        <option value="1">US</option>
+                        <option value="2">PK</option>
+                        <option value="3">UAE</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Send me Notifications</label>
+            </div>
+            <button type="submit" class="btn" style="background-color: darkorange; color: black;">Pay</button>
+        </form>
+    </div>
+
+     <!-- Sign up Modal -->
+     <div class="modal fade" id="signup" tabindex="-1"
+     style="z-index: 2500; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 <form action="#" class="needs-validation">
+                     <div class="form-signup my-2">
+                         <input class="form-control form-control-lg" type="text" name="username"
+                             placeholder="Enter Username" aria-label=".form-control-lg example" required>
+                     </div>
+                     <div class="invalid-feedback">
+                         Provide Username
+                     </div>
+                     <div class="form-signup my-2">
+                         <input class="form-control form-control-lg" type="email" name="email"
+                             placeholder="Enter Email" aria-label=".form-control-lg example" required>
+                     </div>
+                     <div class="invalid-feedback">
+                         Provide Email
+                     </div>
+                     <div class="form-signup my-2">
+                         <input class="form-control form-control-lg" type="password" name="password"
+                             placeholder="Enter Password" aria-label=".form-control-lg example" required>
+                     </div>
+                     <div class="invalid-feedback">
+                         Provide Password
+                     </div>
+                     <div class="form-signup my-2">
+                         <input class="form-control form-control-lg" type="cpassword" name="cpassword"
+                             placeholder="Confirm Password" aria-label=".form-control-lg example" required>
+                     </div>
+                     <div class="invalid-feedback">
+                         Password must be match
+                     </div>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn input-group-text"
+                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                     data-bs-dismiss="modal">Close</button>
+                 <input type="submit" class="btn input-group-text"
+                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                     value="Submit">
+             </div>
+             </form>
+         </div>
+     </div>
+ </div>
+
+ <!-- Login Modal -->
+ <div class="modal fade" id="login" tabindex="-1"
+     style="z-index: 2500; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 <form action="#">
+                     <div class="form-signup my-2">
+                         <input class="form-control form-control-lg" type="email" placeholder="Enter Email"
+                             aria-label=".form-control-lg example" required>
+                     </div>
+                     <div class="invalid-feedback">
+                         Provide Password
+                     </div>
+                     <div class="form-signup my-2">
+                         <input class="form-control form-control-lg" type="password" placeholder="Enter Password"
+                             aria-label=".form-control-lg example" required>
+                     </div>
+                     <div class="invalid-feedback">
+                         Password must be match
+                     </div>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn input-group-text"
+                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                     data-bs-dismiss="modal">Close</button>
+                 <input type="submit" class="btn input-group-text"
+                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                     value="Submit">
+             </div>
+             </form>
+         </div>
+     </div>
+ </div>
+
+    <!-- Footer -->
+    <div class="container-fluid mt-3" style="background:orange;">
+        <footer class="p-5">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3">
+                    <div class="col">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex flex-row">
+                                <span><i class="fa fa-map-marker fa-4x" aria-hidden="true"></i></span>
+                                <p class="ms-3" style="font-size: 18px;">
+                                    21 Karachi Street <br> <span><strong>Sindh, Karachi</strong></span>
+                                </p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <span><i class="fa fa-phone fa-4x" aria-hidden="true"></i></span>
+                                <p class="ms-3 mt-2" style="font-size: 18px;">
+                                    +92 332 5774617
+                                </p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <span><i class="fa fa-envelope-o fa-4x" aria-hidden="true"></i></span>
+                                <p class="ms-3 mt-3" style="font-size: 18px;">
+                                    faizan@example.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <form action="" class="d-flex flex-column">
+                                <input type="email" placeholder="Subscribe for latest updates"
+                                    style="border: 2px solid #dc3500; border-radius: 2.25rem;"
+                                    class="form-control my-4">
+                                <button type="submit" class="btn btn-outline"
+                                    style="background-color: #dc3500; border-radius: 2.25rem; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-column ms-5 ps-3">
+                            <h3>About the Company</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil natus tempore architecto
+                                suscipit laudantium atque accusantium consequatur. Mollitia, nobis voluptatum.
+                                <a href="contact.html" style="color: black;">Contact us</a>
+                            </p>
+                            <div class="d-flex flex-row flex-grow-1">
+                                <button class="btn btn-circle me-3" style="background-color: black; color:darkorange;"
+                                    type="button"><i class="fa fa-facebook" style="font-size: 16px;"
+                                        aria-hidden="true"></i></button>
+                                <button class="btn btn-circle" style="background-color: black; color:darkorange;"
+                                    type="button"><i class="fa fa-twitter" style="font-size: 16px;"
+                                        aria-hidden="true"></i></button>
+                                <button class="btn btn-circle mx-3" style="background-color: black; color:darkorange;"
+                                    type="button"><i class="fa fa-linkedin" style="font-size: 16px;"
+                                        aria-hidden="true"></i></button>
+                                <button class="btn btn-circle" style="background-color: black; color:darkorange;"
+                                    type="button"><i class="fa fa-github" style="font-size: 16px;"
+                                        aria-hidden="true"></i></button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+     <!-- Made By Faizan Ahmed Raza -->
+     <div class="container-fluid text-center p-3" style="background: orangered; color: white;">
+        &copy; Copyright 2020 <a href="#" data-toggle="tooltip" title="faizanahmedraza35@gmail.com" style="background: orangered; color: orange;">FAIZAN AHMED
+            RAZA</a>
+    </div>
+    <!-- FontAwesom -->
+    <script src="https://use.fontawesome.com/15893db491.js"></script>
+    <!-- Jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("second-navbar").style.top = "-50px";
+                document.getElementById("mySidenav").style.visibility = "visible";
+            } else {
+                document.getElementById("second-navbar").style.top = "50px";
+                document.getElementById("mySidenav").style.visibility = "hidden";
+
+            }
+            prevScrollpos = currentScrollPos;
+        }
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+
+</html>
