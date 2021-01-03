@@ -51,19 +51,19 @@ html,body{
 
   }
   #flights {
-    top: 120px;
+    top: 130px;
   }
   
   #cars {
-    top: 180px;
+    top: 190px;
   }
   
   #trains {
-    top: 240px;
+    top: 250px;
   }
   
   #hotels {
-    top: 300px;
+    top: 310px;
   }
   #second-navbar {
     background-color: #ffc107e3;
@@ -100,4 +100,3 @@ html,body{
       left: 50%;
       transform: translate(-50%, -50%);
   }
-  

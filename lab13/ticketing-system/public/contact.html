@@ -12,22 +12,57 @@
     <script src="https://use.fontawesome.com/15893db491.js"></script>
     <link rel="stylesheet" href="../assets/css/app.css">
     <style>
-        div.form-signup.my-2 {
-            border: none;
-            border-bottom: 2px solid black!important;
-            font-size: 18px;
-        }
-
-        div.form-signup.my-2>input {
-            font-size: 18px;
-        }
-
-        div.form-signup.my-2>.form-control {
+        .form-select {
+            background-color: orange;
             border: none;
         }
 
-        div.form-signup.my-2>input.form-control.form-control-lg> ::placeholder {
-            background: transparent !important;
+        .form-select:focus,
+        .form-select:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .input-group-text {
+            background-color: orange;
+            border: none;
+        }
+
+        input.form-control {
+            background-color: transparent;
+            border: 1px solid orange;
+            border: none;
+            border-bottom: 2px solid black !important;
+            font-size: 18px;
+            border-radius: 0px;
+        }
+
+        input.form-control:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: transparent;
+            color: black;
+            font-size: 18px;
+            border: 1px solid orange;
+        }
+
+        .input-group-text:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .contact>input.form-control,
+        .contact>textarea.form-control {
+            background-color: transparent;
+            color: black !important;
+            border: none;
+            border-bottom: 2px solid black !important;
+            font-size: 18px;
+            border-radius: 0px;
+        }
+
+        ::placeholder {
+            color: black !important;
         }
 
         .btn-circle {
@@ -40,14 +75,14 @@
             line-height: 1.42857;
         }
 
-        input.form-control {
-            background-color: transparent;
-            color: black !important;
+        button .btn:focus {
+            background-color: transparent !important;
+            outline: none !important;
+            box-shadow: none !important;
+            border-radius: 0px !important;
+            -webkit-border-radius: 0px;
         }
 
-        ::placeholder {
-            color: black !important;
-        }
         div.modal-content {
             background-color: #FFC107;
             border-radius: 25px !important;
@@ -65,6 +100,27 @@
             border-top: 1px solid darkorange !important;
             justify-content: space-around !important;
         }
+
+        div#upbutton.upbutton {
+            background-color: darkorange;
+            color: white;
+            position: fixed;
+            z-index: 1050;
+            right: 46px;
+            bottom: 36px;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 20px;
+            visibility: hidden;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 1px 3px rgba(0, 0, 0, .12);
+            cursor: pointer;
+        }
+
+        button.btn.login:hover,
+        button.btn.signup:hover {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 1px 3px rgba(0, 0, 0, .12);
+            color: rgb(62, 62, 255);
+        }
     </style>
 </head>
 
@@ -72,7 +128,7 @@
     <header>
         <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #FFC107;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Ticketing System</a>
+                <a class="navbar-brand" href="../index.html">Ticketing System</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
@@ -83,14 +139,14 @@
                             <a href="" class="nav-link">Call at <span>+92 333 4343441</span></a>
                         </li>
                         <li class="nav-item" style="border-right: 1px solid darkorange;">
-                            <button type="button" class="btn"
+                            <button type="button" class="btn signup"
                                 style="box-shadow: none;outline: none; height: 20px; margin-top: -10px; font-size: 16px;"
                                 data-bs-toggle="modal" data-bs-target="#signup">
                                 Sign up
                             </button>
                         </li>
                         <li class="nav-item">
-                            <button type="button" class="btn"
+                            <button type="button" class="btn login"
                                 style="box-shadow: none;outline: none; height: 20px; margin-top: -10px; font-size: 16px;"
                                 data-bs-toggle="modal" data-bs-target="#login">
                                 Log in
@@ -100,7 +156,7 @@
                 </div>
             </div>
         </nav>
-         <!-- Navigation Bar -->
+        <!-- Navigation Bar -->
         <div id="second-navbar" style="background-color: #ffc107e3; width: 100%;">
             <a href="flight.html">Flights </a>
             <a href="car.html">Cars </a>
@@ -108,7 +164,7 @@
             <a href="hotel.html">Hotels </a>
             <a href="contact.html">Contact us </a>
         </div>
-         <!-- Side Navigation Bar -->
+        <!-- Side Navigation Bar -->
         <div id="mySidenav" class="sidenav me-0" style="position: relative;">
             <a href="flight.html" id="flights" class="mySidenavColor">Flights <span class="icon"><i class="fa fa-plane"
                         aria-hidden="true"></i></span></a>
@@ -125,28 +181,21 @@
         <div class="d-flex justify-content-center">
             <h2 style="font-weight: 700;">Contact Us</h2>
         </div>
-        <form action="" onsubmit="return Contact()">
-            <div class="mb-3">
-                <div class="form-signup my-2">
-                    <label for="name" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
-                </div>
-                <div id="name_error" class="invalid-feedback" style="color: darkorange;"></div>
+        <form action="" id="contactForm">
+            <div class="contact" style="margin:10px 0px;">
+                <label for="cfname" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="cfname" name="" aria-describedby="emailHelp">
+                <small class="mt-2" style="color: darkorange;"></small>
             </div>
-            <div class="mb-3">
-                <div class="form-signup my-2">
-                    <label for="exampleInputEmail1" class="form-label" required>Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-                        required>
-                </div>
-                <span id="email_error" class="mt-2" style="color: darkorange;"></span>
+            <div class="contact" style="margin:10px 0px;">
+                <label for="cuemail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="cuemail" name="" aria-describedby="emailHelp">
+                <small class="mt-2" style="color: darkorange;"></small>
             </div>
-            <div class="mb-3">
-                <div class="form-signup my-2">
-                    <label for="exampleFormControlTextarea1" class="form-label">Your Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                </div>
-                <span id="message_error" class="mt-2" style="color: darkorange;"></span>
+            <div class="contact" style="margin:10px 0px;">
+                <label for="exampleFormControlTextarea1" class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                <small class="mt-2" style="color: darkorange;"></small>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -156,99 +205,87 @@
         </form>
     </div>
 
-     <!-- Sign up Modal -->
-     <div class="modal fade" id="signup" tabindex="-1"
-     style="z-index: 2500; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
-     aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-dialog-centered">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
-                 <form action="#" class="needs-validation">
-                     <div class="form-signup my-2">
-                         <input class="form-control form-control-lg" type="text" name="username"
-                             placeholder="Enter Username" aria-label=".form-control-lg example" required>
-                     </div>
-                     <div class="invalid-feedback">
-                         Provide Username
-                     </div>
-                     <div class="form-signup my-2">
-                         <input class="form-control form-control-lg" type="email" name="email"
-                             placeholder="Enter Email" aria-label=".form-control-lg example" required>
-                     </div>
-                     <div class="invalid-feedback">
-                         Provide Email
-                     </div>
-                     <div class="form-signup my-2">
-                         <input class="form-control form-control-lg" type="password" name="password"
-                             placeholder="Enter Password" aria-label=".form-control-lg example" required>
-                     </div>
-                     <div class="invalid-feedback">
-                         Provide Password
-                     </div>
-                     <div class="form-signup my-2">
-                         <input class="form-control form-control-lg" type="cpassword" name="cpassword"
-                             placeholder="Confirm Password" aria-label=".form-control-lg example" required>
-                     </div>
-                     <div class="invalid-feedback">
-                         Password must be match
-                     </div>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn input-group-text"
-                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
-                     data-bs-dismiss="modal">Close</button>
-                 <input type="submit" class="btn input-group-text"
-                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
-                     value="Submit">
-             </div>
-             </form>
-         </div>
-     </div>
- </div>
+    <!-- Sign up Modal -->
+    <div class="modal fade" id="signup" tabindex="-1"
+        style="z-index: 2500; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="signupForm">
+                        <div class="signup" style="margin:12px 0px;">
+                            <label for="fname" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="fname" name="" autocomplete="on">
+                            <small style="color:black;"></small>
+                        </div>
+                        <div class="signup" style="margin:12px 0px;">
+                            <label for="uemail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="uemail" name="" autocomplete="on">
+                            <small style="color:black;"></small>
+                        </div>
+                        <div class="signup" style="margin:12px 0px;">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="" autocomplete="off">
+                            <small style="color:black;"></small>
+                        </div>
+                        <div class="signup" style="margin:12px 0px;">
+                            <label for="cpassword" class="form-label">Cpassword</label>
+                            <input type="password" class="form-control" id="cpassword" name="" autocomplete="off">
+                            <small style="color:black;"></small>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn input-group-text"
+                        style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                        data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn input-group-text"
+                        style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                        value="Submit">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
- <!-- Login Modal -->
- <div class="modal fade" id="login" tabindex="-1"
-     style="z-index: 2500; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
-     aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-dialog-centered">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
-                 <form action="#">
-                     <div class="form-signup my-2">
-                         <input class="form-control form-control-lg" type="email" placeholder="Enter Email"
-                             aria-label=".form-control-lg example" required>
-                     </div>
-                     <div class="invalid-feedback">
-                         Provide Password
-                     </div>
-                     <div class="form-signup my-2">
-                         <input class="form-control form-control-lg" type="password" placeholder="Enter Password"
-                             aria-label=".form-control-lg example" required>
-                     </div>
-                     <div class="invalid-feedback">
-                         Password must be match
-                     </div>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn input-group-text"
-                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
-                     data-bs-dismiss="modal">Close</button>
-                 <input type="submit" class="btn input-group-text"
-                     style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
-                     value="Submit">
-             </div>
-             </form>
-         </div>
-     </div>
- </div>
+    <!-- Login Modal -->
+    <div class="modal fade" id="login" tabindex="-1"
+        style="z-index: 2500; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="loginForm">
+                        <div class="login" style="margin:12px 0px;">
+                            <label for="uemail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loemail" name="" autocomplete="on">
+                            <small style="color:black"></small>
+                        </div>
+                        <div class="login" style="margin:12px 0px;">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="lopassword" name="" autocomplete="off">
+                            <small style="color:black"></small>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn input-group-text"
+                        style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                        data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn input-group-text"
+                        style="background-color: darkorange; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);"
+                        value="Submit">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <div class="container-fluid mt-3" style="background:orange;">
@@ -281,7 +318,7 @@
                         <div>
                             <form action="" class="d-flex flex-column">
                                 <input type="email" placeholder="Subscribe for latest updates"
-                                    style="border: 2px solid #dc3500; border-radius: 2.25rem;"
+                                    style="border: 2px solid #dc3500; border-radius: 2.25rem; border-bottom:  2px solid #dc3500!important;"
                                     class="form-control my-4">
                                 <button type="submit" class="btn btn-outline"
                                     style="background-color: #dc3500; border-radius: 2.25rem; box-shadow:  0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.12);">Subscribe</button>
@@ -319,20 +356,21 @@
     </div>
     <!-- Made By Faizan Ahmed Raza -->
     <div class="container-fluid text-center p-3" style="background: orangered; color: white;">
-        &copy; Copyright 2020 <a href="#" data-toggle="tooltip" title="faizanahmedraza35@gmail.com" style="background: orangered; color: orange;">FAIZAN AHMED
+        &copy; Copyright 2020 <a href="#" data-toggle="tooltip" title="faizanahmedraza35@gmail.com"
+            style="background: orangered; color: orange;">FAIZAN AHMED
             RAZA</a>
     </div>
 
-     <!-- FontAwesom -->
-     <script src="https://use.fontawesome.com/15893db491.js"></script>
-     <!-- Jquery cdn -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <!-- JavaScript Bundle with Popper -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-         crossorigin="anonymous"></script>
-    <script src="../assets/js/app.js"></script>
-    <script>
+    <!-- FontAwesom -->
+    <script src="https://use.fontawesome.com/15893db491.js"></script>
+    <!-- Jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/index.js"></script>
+    <script type="text/javascript">
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function () {
             var currentScrollPos = window.pageYOffset;
@@ -348,8 +386,89 @@
         }
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
-            tooltip.show();
         });
+
+        const form = document.getElementById('contactForm');
+        const cusername = document.getElementById('cfname');
+        const cemail = document.getElementById('cuemail');
+        const message = document.getElementById('message');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            ContactFormInputs();
+        });
+
+        const cSendData = (sRate, counter) => {
+            if (sRate === counter) {
+                alert("Your Form has Succesfully Submitted!");
+            }
+        }
+
+        const cSuccessValidation = () => {
+            let small = document.getElementsByTagName('small');
+            var counter = small.length - 1;
+            for (var i = 0; i < small.length; i++) {
+                if (small[i].innerText === "") {
+                    var sRate = 0 + i;
+                    cSendData(sRate, counter);
+                }
+            }
+        }
+
+        const cValidateEmail = (emailVal) => {
+            var atSymbol = emailVal.indexOf('@');
+            var atDot = emailVal.lastIndexOf('.');
+            const emailPattern = /[A-za-z0-9_]{3,14}@[A-za-z]{3,}[.]{1}[a-zA-z.]{2,6}$/;
+            if (atSymbol <= 1) return false;
+            if (atDot <= atSymbol + 3) return false;
+            if (atDot === emailVal.length - 1) return false;
+            if (!emailPattern.test(emailVal)) return false;
+            return true;
+        }
+
+        const ContactFormInputs = () => {
+            const usernameVal = cusername.value.trim();
+            const emailVal = cemail.value.trim();
+            const messageVal = message.value.trim();
+
+            if (usernameVal === "") {
+                cSetErrorMsg(cusername, 'Username cannot be blank!');
+            } else if (usernameVal.length <= 2) {
+                cSetErrorMsg(cusername, 'Username cannot be less than 3 characters!');
+            } else {
+                cSetSuccessMsg(cusername);
+            }
+
+            if (emailVal === "") {
+                cSetErrorMsg(cemail, 'Email cannot be blank!');
+            } else if (!cValidateEmail(emailVal)) {
+                cSetErrorMsg(cemail, 'Please provide an valid email address!');
+            } else {
+                cSetSuccessMsg(cemail);
+            }
+
+            if (messageVal === "") {
+                cSetErrorMsg(message, 'Message cannot be blank!');
+            } else if (messageVal.length <= 10) {
+                cSetErrorMsg(message, 'Message must be greater than 10 characters!');
+            } else {
+                cSetSuccessMsg(message);
+            }
+            if (usernameVal && emailVal && messageVal && (usernameVal.length > 2) && cValidateEmail(emailVal) && (messageVal.length > 10)) {
+                cSuccessValidation();
+            }
+        }
+
+        function cSetErrorMsg(input, erromsgs) {
+            const formGroup = input.parentElement;
+            const small = formGroup.querySelector('small');
+            small.innerText = erromsgs;
+        }
+
+        function cSetSuccessMsg(input) {
+            const formGroup = input.parentElement;
+            const small = formGroup.querySelector('small');
+            small.innerText = "";
+        }
     </script>
 </body>
 

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/15893db491.js"></script>
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <form action="" name="payment"  onsubmit="return Test();">
+           <input type="email" id="email" name="email">
+           <span class="mt-2" id="error"></span>
+           <button type="submit">Pay</button>
+        </form> -->
+        <form action="car.html" method="POST" id="payForm">
+            <div class="yesform">
+                    <label for="fname" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="fname" name="" autocomplete="on">
+ 
+                <small style="color: darkorange;"></small>
+            </div>
+            <div class="yesform">
+    
+                    <label for="uemail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="uemail" name="" autocomplete="on">
+       
+                <small style="color: darkorange;"></small>
+            </div>
+            <div class="yesform">
+  
+                    <label for="uemail" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="" autocomplete="off">
+        
+                <small style="color: darkorange;"></small>
+            </div>
+            <div class="yesform">
+        
+                    <label for="uemail" class="form-label">Cpassword</label>
+                    <input type="password" class="form-control" id="cpassword" name="" autocomplete="off">
+  
+                <small style="color: darkorange;"></small>
+            </div>
+            <input type="submit" class="btn" value="Pay" style="background-color: darkorange; color: black;">
+        </form>
+
+    </div>
+    <script src="../assets/js/test.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        const form = document.getElementById('payForm');
+        const username = document.getElementById('fname');
+        const email = document.getElementById('uemail');
+        const password = document.getElementById('password');
+        const cpassword = document.getElementById('cpassword');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            PaymentFormInputs();
+        });
+
+        const sendData = (sRate, counter,user) => {
+            if(sRate === counter){
+                alert("Registration Success!");
+                alert("Assalam o Alaikum "+ user);
+            }
+        }
+
+        const successValidation = (user) => {
+            let small = document.getElementsByTagName('small');
+            var counter = small.length - 1;
+            for(var i = 0; i < small.length; i++){
+                if(small[i].innerText === ""){
+                    var sRate = 0 + i;
+                    sendData(sRate,counter,user);
+                }
+            }
+        }
+
+        const validateEmail = (emailVal) => {
+            var atSymbol = emailVal.indexOf('@');
+            var atDot = emailVal.lastIndexOf('.');
+            const emailPattern = /[A-za-z0-9_]{3,14}@[A-za-z]{3,}[.]{1}[a-zA-z.]{2,6}$/;
+            if (atSymbol <= 1) return false;
+            if (atDot <= atSymbol + 3) return false;
+            if (atDot === emailVal.length - 1) return false;
+            if (!emailPattern.test(emailVal)) return false;
+            return true;
+        }
+
+        const validatePassword = (passwordVal) => {
+            var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%^&*_^]).{8,}$/;
+            if(!passwordPattern.test(passwordVal)) return false;
+            return true;
+        }
+
+        const PaymentFormInputs = () => {
+            const usernameVal = username.value.trim();
+            const emailVal = email.value.trim();
+            const passwordVal = password.value.trim();
+            const cpasswordVal = cpassword.value.trim();
+
+            if (usernameVal === "") {
+                setErrorMsg(username, 'Username cannot be blank!');
+            } else if (usernameVal.length <= 2) {
+                setErrorMsg(username, 'Username cannot be less than 3 characters!');
+            } else {
+                setSuccessMsg(username);
+            }
+
+            if (emailVal === "") {
+                setErrorMsg(email, 'Email cannot be blank!');
+            } else if (!validateEmail(emailVal)) {
+                setErrorMsg(email, 'Please provide an valid email address!');
+            } else {
+                setSuccessMsg(email);
+            }
+            
+            if (passwordVal === "") {
+                setErrorMsg(password, 'Password cannot be blank!');
+            } else if (!validatePassword(passwordVal)) {
+                setErrorMsg(password, 'Password must have one Uppercase, Lowercase and Special Characters!');
+            } else if (passwordVal.length <= 7) {
+                setErrorMsg(password, 'Please must be greater than 8 characters!');
+            }  else {
+                setSuccessMsg(password);
+            }
+
+            if (cpasswordVal === "") {
+                setErrorMsg(cpassword, 'Password cannot be blank!');
+            } else if (!(cpasswordVal === passwordVal)) {
+                setErrorMsg(cpassword, 'Password must be match!');
+            } else {
+                setSuccessMsg(cpassword);
+            }
+            successValidation(usernameVal);
+        }
+
+        function setErrorMsg(input, erromsgs) {
+            const formGroup = input.parentElement;
+            const small = formGroup.querySelector('small');
+            small.innerText = erromsgs;
+        }
+
+        function setSuccessMsg(input) {
+            const formGroup = input.parentElement;
+            const small = formGroup.querySelector('small');
+            small.innerText = "";
+        }
+        </script>
+</body>
+
+</html>
